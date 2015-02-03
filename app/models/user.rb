@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 	validates :password, length: {minimum: 6}
 	validates :email, uniqueness: true
 
-	has_many :posts, dependent: :destroy
-	has_many :comments, through: :posts, source: :comments, dependent: :destroy
+	has_many :posts, 
+	has_many :comments, through: :posts
 
 	has_many :relationships, 
 		class_name: "Follower",
