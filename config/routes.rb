@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'comments/show'
+
+  get 'home/dashboard'
+
+  get 'home/signin'
+
+  get 'sessions/new'
+
+  get 'posts/index'
+
+  get 'posts/new'
+
+  get 'posts/edit'
+
+  get 'posts/show'
+
+  get 'users/index'
+
+  get 'users/edit'
+
+  get 'users/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
