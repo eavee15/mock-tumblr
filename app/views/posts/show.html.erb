@@ -1,40 +1,27 @@
-<div>
-<%= render partial: "./posts/show",
-  locals: { post: @post } %>
+<div class="blog_detail">
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<p>By <%= @post.user.name %></p>
 </div>
+  <br />
+<fieldset class="comment_form">
+  <%= render "/comments/comment" %>
+</fieldset>
 
-<div>
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :text, :placeholder => "text"%>
-  <%= f.submit "create comment" %>
+  <h2 class="comment_header">Comments</h2>
+  <% @post.comments.each do |comment| %>
+  
+  <div class="comment_detail">
+    <p><%= comment.body %></p>
+    <p>By <%= comment.user.name %></p>
+  </div>
 <% end %>
-</div>
 
-<div>
-<% if !@comments.empty? %>
-  <% @comments.each do |comment| %>
-    <ul class="post_comment">
-      <li class="comment_text">
-        <% if @current_user.id == comment.user_id %>
-          <%= form_for [@post, comment] do |f| %>
-            <%= f.text_field :text, :placeholder => "text"%>
-            <%= f.submit "update comment" %>
-          <% end %>
-        <% else %>
-          <%= "#{ comment.text }" %>
-        <% end %>
-      </li>
-      <li class="comment_author">by <a href=<%= "/users/#{ comment.user_id }" %>> <%= "#{ comment.user.username }" %></a>
-      </li>
-      <li class="comment_info">last updated <%= "#{ comment.updated_at }" %>
-      </li>
-      <% if @current_user.id == comment.user_id %>
-        <li class="comment_delete"><%= link_to ("delete"), "/posts/#{ @post.id }/comments/#{ comment.id }", method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-<% else %> 
-  <h3>no comments to show! create one above.</h3>
-<% end %>
-</div>
+
+
+
+    
+
+
+<p> <%= link_to 'Edit Post', edit_post_path(@post)%></p> 
+<h1 class="post_back"><%= link_to 'Back', posts_path %></h1>
