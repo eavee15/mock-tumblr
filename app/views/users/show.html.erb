@@ -1,8 +1,8 @@
-<div class="profile_info">
+<body id="profile_body">
 
+<div class="profile_info">
 <h1><%= @user.name %></h1>
 <p>(<%= @user.email %>)</p><br />
-</p> <%= @user.aboutme %></p>
 </div>
 <h1 class="profile_posts"><%= @user.name %>'s Posts</h1>
 
@@ -12,6 +12,3 @@
   <p class="blog_body"><%= post.body %></p>
   <% end %>
 </div>
-
-
-<h1 class="profile_back"><%= link_to 'Back', users_path %> </h1>

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	  def create
+	def create
     @user = User.find_by(email: params[:email])
     if @user and @user.password == params[:password]
       flash[:notice] = "Successfully signed in!"
@@ -15,4 +15,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "Logged out."
     redirect_to root_path
   end
- end
+
+end

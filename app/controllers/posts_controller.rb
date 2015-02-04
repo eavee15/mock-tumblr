@@ -23,11 +23,13 @@ before_action :set_post, only: [:edit, :update, :show, :destroy]
   end
 
   def update
-    @post = Post.create(post_params)
+    @post.update(post_params)
+    redirect_to post_path
   end
 
   def destroy
   end
+  
   private
 
    def set_post
