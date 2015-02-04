@@ -1,20 +1,8 @@
 class UsersController < ApplicationController
- def index
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
+
+  def index
     @users = User.all
-    current_user
-  end
-
-  def create
-    @user = User.new(user_params)
-    
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = "Signup complete!"
-    else
-      flash[:alert] = "Unsuccessful signup. Please try again."
-    end
-
-    redirect_to "/"
   end
 
   def new
@@ -25,20 +13,30 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = User.find(params[:id]).posts
-    current_user
+  end
+
+  def create
+    @user = User.create(user_params)
+    redirect_to @user, notice: "New user created!"
   end
 
   def update
+    @user.update(user_params)
+    redirect_to @user, notice: "User successfully updated!"
   end
 
   def destroy
+    @user.destroy
+    redirect_to users_path, notice: "User deleted."
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:email, :password, :name)
+  def set_user
+    @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(:user).permit(:email, :name, :bio, :password)
+  end
 end

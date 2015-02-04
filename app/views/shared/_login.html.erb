@@ -1,0 +1,10 @@
+	<fieldset class="login">
+	<%= form_tag('/signin', method: :post) do |f| %>
+		<%= label_tag :email %>
+		<%= email_field_tag :email %><br /><br />
+		<%= label_tag :password %>
+		<%= password_field_tag :password %><br /><br />
+		<div class="submit"><%= submit_tag "Log in" %></div>
+	</fieldset>
+
+<% end %>

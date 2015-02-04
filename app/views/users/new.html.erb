@@ -1,15 +1,4 @@
-
-<div class="logo-signin">
-  <h1 id="logo-link"><a href="/">logo will go here</a></h1>
-</div>
-
-<div id="signup-form">  
-  <h3>sign up!</h3>
-  <%= form_for @user do |f|%>
-    <%= f.text_field :username, :placeholder => "username" %>
-    <%= f.text_field :name, placeholder: "your name" %>
-    <%= f.email_field :email, placeholder: "your email" %>
-    <%= f.password_field :password, placeholder: "choose a password" %>
-    <%= f.submit "sign up!" %>
-  <% end %>
-</div>
+<h1 class="new_user"> New User</h1>
+<%= render 'form' %>
+<br />
+<div class="cancel_new_user"><%= link_to 'Cancel', users_path %></div>

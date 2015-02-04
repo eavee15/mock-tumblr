@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Money talks</title>
+  <title>Money Talks</title>
+  <link href='http://fonts.googleapis.com/css?family=sans-serif' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if flash[:notice] %>
-  	<div class="flash-notice">
-  		<%= flash[:notice] %>
-  	</div>
-  <% elsif flash[:alert] %>
-  	<div class="flash-alert">
-  		<%= flash[:alert] %>
-  	</div>
-  <% end %>
+  <header>
+    <ul>
+      <% if current_user %>
+      <li><%= link_to "Hello #{current_user.name}!", user_path(current_user) %></li>
+      <li><%= link_to 'Edit User', edit_user_path(current_user) %></li>
+      <li><%= link_to 'New Post', new_post_path %></li>
+      <li><%= link_to 'Sign out', logout_path, method: :delete %></li>
+      <% end %>
+  </header>
+  <%= flash[:notice] if flash[:notice] %>
+  <%= flash[:alert] if flash[:alert] %>
+<%= yield %>
 
-  <%= yield %>
-
-  <footer id="copyright">
-  </footer>
 </body>
 </html>
