@@ -3,13 +3,14 @@ Rails.application.routes.draw do
 
   delete 'sessions/destroy' => 'sessions#destroy'
 
+  resources :users
+
   resources :sessions, only: [:new, :create]
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.
