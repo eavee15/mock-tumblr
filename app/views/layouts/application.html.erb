@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MockTumblr</title>
+  <title> Money talks</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if flash[:notice] %>
+  	<div class="flash-notice">
+  		<%= flash[:notice] %>
+  	</div>
+  <% elsif flash[:alert] %>
+  	<div class="flash-alert">
+  		<%= flash[:alert] %>
+  	</div>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
+  <footer id="copyright">
+  </footer>
 </body>
 </html>
