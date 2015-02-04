@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div id="left-content">
+  <div id="logo-header">
+    <h1 id="logo-link"><a href="/">logo will go here</a></h1>
+  </div>
+  <h2 class="posts-header">All Posts</h2>
+  <% if !@posts.empty? %>
+    <ul class="all-posts">
+      <% @posts.each do |post| %>
+        <li class="post">
+          <a href= <%= "/posts/#{ post.id }" %> class="post-title">
+            <%= post.title %>
+          </a>
+          <p class="trunc-content"><%= truncate(post.body, length: 10) %></p>
+          <p class="author">posted by <%= post.user.name %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div id="no-posts">
+      <p>you haven't posted anything yet! <a href="/posts/new">tell us your thoughts!</a></p>
+    </div>
+  <% end %>
+</div>
+
+<div id="clear"></div>
+
+<div id="right-content">
+  <div id="logout">
+    <%= link_to(("logout"), "/sessions/destroy", {method: :delete, class: "logout-button"}) %>
+  </div>
+  <div id="sidebar">
+    <nav>
+      <ul class="sidebar-list">
+        <li><a href="/">home</a></li>
+        <li><a href=<%= "/users/#{ @current_user.id }" %>>your posts</a></li>
+        <li><a href="/posts/new">new post</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
