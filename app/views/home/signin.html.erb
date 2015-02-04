@@ -1,2 +1,9 @@
-<h1>Home#signin</h1>
-<p>Find me in app/views/home/signin.html.erb</p>
+<div class="logo-signin">
+  <h1><a href="/">logo will go here</a></h1>
+</div>
+<div id="signin-form">
+  <%= render partial: "./sessions/new" %>
+  <div id="new-user">
+    <p>new user? <a href="/users/new">sign up here!</a></p>
+  </div>
+</div>
