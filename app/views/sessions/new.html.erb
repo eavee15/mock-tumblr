@@ -1,2 +1,8 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h3>Login</h3>
+<%= form_tag('/sessions', {method: "POST", class: "login-form"}) do %>
+  <%= fields_for :user do |s| %>
+    <%= s.email_field(:email, :placeholder => "email") %>
+    <%= s.password_field(:password, :placeholder => "password") %>
+    <%= s.submit("login") %>
+  <% end %>
+<% end %>
