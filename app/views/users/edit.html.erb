@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<section class="usersedit">
+	<h1>settings</h1>
+	<% if @current_user.id == @user.id %>
+		<%= form_for @user do |f| %>
+			<%= f.text_field :username %>
+			<%= f.email_field :email %>
+			<%= f.password_field :password, :placeholder => "type new password here" %>
+			<%= f.password_field :password_confirmation, :placeholder => "confirm new password" %>
+			<%= f.submit "update" %>
+			<button>
+				<%= link_to ("delete user"), "/users/#{ @user.id }", method: :delete %>
+			</button>
+		<% end %>
+	<% else %>
+		<h2>you do not have access, please try again</h2>
+	<% end %>
+</section>
