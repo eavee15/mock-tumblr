@@ -1,0 +1,26 @@
+<% if @current_user.id == post.user_id %>
+  <%= form_for post do |f| %>
+    <li class="post_title"><%= f.text_field :title %></li>
+    <li class="post_text"><%= f.text_area :text %></li>
+    <li class="update_button"><%= f.submit "update post" %></li>
+  <% end %>
+<% else %>
+  <div class="post_top">
+    <li class="post_title"><h3><%= "#{ post.title }" %></h3></li>
+    <li class="post_text border"><%= "#{ post.text }" %></li>
+  </div>
+<% end %>
+<div class="post_bottom">
+  <li class="post_info">by <a href=<%= "/users/#{ post.user_id }" %>> <%= "#{ post.user.username }" %></a>
+  </li>
+  <li class="post_info">last updated <%= "#{ post.updated_at }" %>
+  </li>
+  <% if @current_user.id == post.user_id %>
+    <li class="post_info"><%= link_to ("delete"), "/posts/#{ post.id }", method: :delete %>
+    </li>
+  <% end %>
+  <% if params[:id] != @post.id.to_s %>
+    <li class="post_info"><a href=<%= "/posts/#{ post.id }" %>>comments</a>
+    </li>
+  <% end %>
+</div>

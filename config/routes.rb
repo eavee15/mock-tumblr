@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
-  root 'home#dashboard'
-
-  delete 'sessions/destroy' => 'sessions#destroy'
-
-  resources :users
-
-  resources :sessions, only: [:new, :create]
-
+ resources :users
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments
   end
+
+  post '/signin', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+   root 'welcome#index'
+
+
+
+
+
+  
+
 
 
 
