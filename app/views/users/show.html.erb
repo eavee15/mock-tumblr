@@ -3,10 +3,6 @@
 
 <h3><%= @user.name %>'s Posts</h3>
 
-<ul>
-	<% @user.posts.each do |post| %>
-	<li><%= link_to post.title, post %></li>
-	<% end %>
-</ul>
+<%= render partial: 'posts/post', collection: @user.posts %>
 
 <%= link_to 'back', users_path %> | <%= link_to 'edit', edit_user_path(@user) %>

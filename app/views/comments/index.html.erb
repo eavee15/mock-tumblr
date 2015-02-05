@@ -5,16 +5,5 @@
 <% end %>
 
 <ul>
-	<% @comments.each do |comment| %>
-		<li>
-			<%= link_to comment.title, post_comments_path(comment) %>
-		
-			<% if current_user == current_post %>
-			 | 
-			<%= link_to 'edit', edit_post_comment_path(comment) %> |
-			<%= link_to 'delete', post_comments_path(comment), method: :delete, data: {confirm: "Do you wish to delete this comment?"} %>
-			<% end %>
-			
-		</li>
-	<% end %>
+	<%= render @comments %>
 </ul>

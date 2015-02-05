@@ -1,4 +1,1 @@
-<h1><%= @comment.title %></h1>
-<p><%= @comment.body %></p>
-
-<%= link_to 'new comment', new_comment_path %>
+<%= render 'comments/comment', object: @comment %>

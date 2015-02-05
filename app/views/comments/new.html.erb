@@ -1,4 +1,6 @@
 <h1>New Comment</h1>
-<%= render 'commentform' %>
+<%= form_for([@post, @comment]) do |f| %>
+  <%= render 'form', f: f %>
+ <%- end %>
 <br />
-<%= link_to 'cancel', comments_path %>
+<%= link_to 'cancel', post_comments_path(params[:post_id]) %>

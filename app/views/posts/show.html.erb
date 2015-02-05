@@ -1,25 +1,15 @@
 <div class="blog_detail">
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
-<p>By <%= @post.user.name %></p>
+<%= render @post %>
 </div>
   <br />
 <fieldset class="comment_form">
-  <%= render "/comments/comment" %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= render "/comments/form", f: f %>
+   <%- end %>
 </fieldset>
 
   <h2 class="comment_header">Comments</h2>
-  <% @post.comments.each do |comment| %>
-  
-  <div class="comment_detail">
-    <p><%= comment.body %></p>
-    <p>By <%= comment.user.name %></p>
-  </div>
-<% end %>
-
-
-
-
+  <%= render partial: 'comments/comment', collection: @post.comments %>
     
 
 
