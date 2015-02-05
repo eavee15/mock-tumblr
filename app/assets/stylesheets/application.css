@@ -32,13 +32,10 @@
  	min-width: 100%; 
 	/*-webkit-filter: blur(5px);
 	z-index: 0;*/
-<<<<<<< HEAD
- }
+}
 .logo {
 	float: left;
 	color: white;
-=======
->>>>>>> 39c0dcf734516f4c90998da8b2654bfc05396466
 }
 
 .sign_inpath
