@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show, :destroy]
-
+    before_action :set_user, only: [:edit, :update, :show, :destroy]
+  
   def index
     @users = User.all
+    if current_user 
+      redirect_to posts_path
+    else
+      
+    end
+
   end
 
   def new
@@ -17,17 +23,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to @user, notice: "New user created!"
+    session[:user_id] = @user.id
+    redirect_to @user, notice: "New user created."
+
   end
 
   def update
     @user.update(user_params)
-    redirect_to @user, notice: "User successfully updated!"
+    redirect_to @user, notice: "User successfully updated."
   end
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: "User deleted."
+    redirect_to users_path, notice: "User was deleted."
   end
 
   private
@@ -36,7 +44,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def user_params
-    params.require(:user).permit(:email, :name, :bio, :password)
+def user_params
+    params.require(:user).permit(:name, :bio, :email, :password)
   end
+
 end

@@ -1,5 +1,7 @@
-<%= form_for [@post, @comment] do |f| %>
-	<%= f.label :body %>
-	<%= f.text_field :body %>
-	<div class="comment_submit"><%= f.submit %></div>
+<%= form_for [@post, @comment] do |s| %>
+
+	<%= s.text_area :text, placeholder: "Post comment" %><br />
+
+	<%= s.submit %>
+
 <% end %>

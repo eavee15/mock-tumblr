@@ -1,10 +1,20 @@
-	<fieldset class="login">
-	<%= form_tag('/signin', method: :post) do |f| %>
-		<%= label_tag :email %>
-		<%= email_field_tag :email %><br /><br />
-		<%= label_tag :password %>
-		<%= password_field_tag :password %><br /><br />
-		<div class="submit"><%= submit_tag "Log in" %></div>
-	</fieldset>
+<% if current_user %>
+	<p>Hello <%= current_user.name %> | 
+		<%= link_to 'sign out', logout_path, method: :delete %>
+			| 
+		<%= link_to 'new post', new_post_path %>
+	</p>
+<% else %>
+	<%= form_tag(signin_path, method: :post) do %>
+		<%= label_tag %>
+		<%= email_field_tag :email, nil, placeholder: 'Email' %>
+		<br>
+		<%= label_tag %>
+		<%= password_field_tag :password, nil, placeholder: 'Password' %>
+		<br>
+		<button type="button"><%= link_to "Sign up", new_user_path %></button>
+		<%= submit_tag "login" %>
 
+		
+	<% end %>
 <% end %>

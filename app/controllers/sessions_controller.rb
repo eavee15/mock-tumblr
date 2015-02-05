@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     else
       flash[:alert] = "Something went wrong."
     end
-      redirect_to posts_path
+      redirect_to root_path
   end
 
   def destroy
@@ -15,5 +15,6 @@ class SessionsController < ApplicationController
     flash[:notice] = "Logged out."
     redirect_to root_path
   end
+
 
 end

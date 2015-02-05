@@ -1,5 +1,4 @@
-<%= form_for [@post, @comment] do |f| %>
-	<%= f.label :body %>
-	<%= f.text_field :body %>
-	<%= f.submit %>
-<% end %>
+<h1>New Comment</h1>
+<%= render 'commentform' %>
+<br />
+<%= link_to 'cancel', comments_path %>

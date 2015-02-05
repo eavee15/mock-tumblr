@@ -1,15 +1,15 @@
-<fieldset class="new_user_form">
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br /><br />
-
-  <%= f.label :email %>
-  <%= f.email_field :email %><br /><br />
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %><br /><br />
-
-  <div class="submit"><%= f.submit %></div>
+	
+	<%= f.text_field :name, placeholder: "Name" %><br />
+	
+	
+	<%= f.email_field :email, placeholder: "Email"  %><br />
+	
+	
+	<%= f.text_area :bio, placeholder: "Bio"  %><br />
+	
+	
+	<%= f.password_field :password, placeholder: "Password"  %><br />
+	
+	<%= f.submit %>
 <% end %>
-
-</fieldset>
