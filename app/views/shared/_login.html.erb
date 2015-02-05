@@ -5,7 +5,7 @@
 		<%= link_to 'new post', new_post_path %>
 	</p>
 <% else %>
-	<div>
+	<div class="sign_inpath" >
 	<h3>Sign in</h3>
 	<%= form_tag(signin_path, method: :post) do %>
 		<%= label_tag %>

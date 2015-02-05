@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.sign_inpath
+{	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+}
