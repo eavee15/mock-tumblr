@@ -24,8 +24,8 @@
 	height: auto;
  	background-image: url(http://i58.tinypic.com/24nflnc.jpg);
  	background-size: cover;
-	/*-webkit-filter: blur(5px);
-	z-index: 0;*/
+	/*-webkit-filter: blur(5px);*/
+	/*z-index: 2;*/
  }
 
 .sign_inpath
