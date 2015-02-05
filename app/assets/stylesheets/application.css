@@ -26,7 +26,6 @@
  	background-size: cover;
 	/*-webkit-filter: blur(5px);*/
 	/*z-index: 2;*/
-=======
  	background-repeat: no-repeat;
  	/*preserved aspect ratio for background image*/
  	min-height: 100%;
@@ -62,5 +61,8 @@
 }
 
 .log_in{
+	padding-top: 100px;
 	text-align: center;
+
 }
+
