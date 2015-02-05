@@ -1,8 +1,10 @@
+<div class="log_in">
+	<h1> Money Talks</h1>
 <h3>Login</h3>
 <%= form_tag('/sessions', {method: "POST", class: "login-form"}) do %>
   <%= fields_for :user do |s| %>
     <%= s.email_field(:email, :placeholder => "email") %>
+    <br />
     <%= s.password_field(:password, :placeholder => "password") %>
     <%= s.submit("login") %>
   <% end %>
-<% end %>
