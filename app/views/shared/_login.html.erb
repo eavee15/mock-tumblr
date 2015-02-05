@@ -5,20 +5,9 @@
 		<%= link_to 'new post', new_post_path %>
 	</p>
 <% else %>
-	<div class="sign_inpath" >
-	<h3>Sign in</h3>
-	<%= form_tag(signin_path, method: :post) do %>
-		<%= label_tag %>
-		<%= email_field_tag :email, nil, placeholder: 'Email' %>
-		<br>
-		<%= label_tag %>
-		<%= password_field_tag :password, nil, placeholder: 'Password' %>
-		<br>
-		
-		<%= submit_tag "login" %>
+	<% unless params[:controller] == "users" and params[:action] == "new" %>
+		<% unless params[:controller] == "sessions" and params[:action] == "new" %>
+			<p><%= link_to 'sign in', signin_path %> | <%= link_to 'sign up', new_user_path %></p>
+		<% end %>
 	<% end %>
-	</div>
-	<div>
-		<p>New here? Click to <%= link_to 'sign up', new_user_path %></p>
-	</div>
 <% end %>
