@@ -12,9 +12,7 @@
  *
  *= require_tree .
  *= require_self
-<<<<<<< Updated upstream
  */
-<<<<<<< HEAD
 
  body {
  	position: absolute;
@@ -29,19 +27,7 @@
 	/*-webkit-filter: blur(5px);
 	z-index: 0;*/
  }
-=======
-body {
-position: absolute;
-top: 0px;
-left: 0px;
-right: 0px;
-bottom: 0px;
-width: auto;
-height: auto;
-background-image: url(http://i58.tinypic.com/24nflnc.jpg);
-background-size: cover;
-}
->>>>>>> FETCH_HEAD
+
 .sign_inpath
 {	position: absolute;
 	top: calc(50% - 75px);
@@ -51,12 +37,7 @@ background-size: cover;
 	padding: 10px;
 	z-index: 2;
 }
-<<<<<<< HEAD
 
-=======
- */
->>>>>>> Stashed changes
-=======
 .header div{
 	float: left;
 	color: #fff;
@@ -64,10 +45,7 @@ background-size: cover;
 	font-size: 35px;
 	font-weight: 200;
 }
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
+
 .log_in{
 	text-align: center;
 }
->>>>>>> FETCH_HEAD
